@@ -7,3 +7,5 @@ import NotesAPI from "./NotesAPI.js";
 // });
 
 console.log(NotesAPI.getAllNotes());
+
+// NotesAPI.deleteNote(473857);
