@@ -58,8 +58,8 @@ export default class NotesView {
       ${body.substring(0, MAX_BODY_LENGTH)}
       ${body.length > MAX_BODY_LENGTH ? "..." : ""}
      </div>
-     <div class="noteSmall-updated">
-      ${updated}
+     <div class="notesSmall-updated">
+      ${updated.toLocaleString()}
      </div>
     </div>
     `;
@@ -75,6 +75,8 @@ export default class NotesView {
         note.body,
         new Date(note.updated)
       );
+
+      notesListContainer.insertAdjacentHTML("beforeend", html);
     }
   }
 }
