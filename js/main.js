@@ -10,8 +10,8 @@ import NotesView from "./NotesView.js";
 // dom の中身を取得して app に渡す
 const app = document.getElementById("app");
 const view = new NotesView(app, {
-  onNoteSelect() {
-    console.log("ノートが選択されました");
+  onNoteSelect(id) {
+    console.log(id + "のノートが選択されました");
   },
   onNoteAdd() {
     console.log("ノートが追加されました");
@@ -19,6 +19,9 @@ const view = new NotesView(app, {
   onNoteEdit(newTitle, newBody) {
     console.log(newTitle);
     console.log(newBody);
+  },
+  onNoteDelete(id) {
+    console.log(id + "のノートが削除されました");
   },
 });
 

@@ -78,5 +78,25 @@ export default class NotesView {
 
       notesListContainer.insertAdjacentHTML("beforeend", html);
     }
+
+    // メモの選択
+    notesListContainer
+      .querySelectorAll(".notesList-item")
+      .forEach((noteListItem) => {
+        noteListItem.addEventListener("click", () => {
+          //   console.log(noteListItem.dataset);
+          this.onNoteSelect(noteListItem.dataset.noteId);
+        });
+
+        noteListItem.addEventListener("dblclick", () => {
+          const doDelete = confirm("本当にこのメモを削除してもいいですか？");
+
+          if (doDelete) {
+            // data-note-id=${id} のidを取得している。
+            // dataセットはカスタムデータ属性で、属性名は、data-プレフィックスを削除し、ハイフンで区切られた名前はキャメルケースに変換される
+            this.onNoteDelete(noteListItem.dataset.noteId);
+          }
+        });
+      });
   }
 }
