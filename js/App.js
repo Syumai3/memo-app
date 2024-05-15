@@ -61,6 +61,8 @@ export default class App {
       },
       onNoteDelete: (noteId) => {
         console.log(noteId + "のノートが削除されました");
+        NotesAPI.deleteNote(noteId);
+        this._refreshNotes();
       },
     };
   }

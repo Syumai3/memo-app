@@ -9,7 +9,7 @@ export default class NotesAPI {
   static saveNote(noteToSave) {
     const notes = NotesAPI.getAllNotes();
     // すでに存在している場合にはメモを作成せず更新する
-    const existingNote = notes.find((note) => note.id === noteToSave.id);
+    const existingNote = notes.find((note) => note.id == noteToSave.id);
 
     // 編集 ot 更新の作業をする
     if (existingNote) {
@@ -28,7 +28,7 @@ export default class NotesAPI {
   // メモを削除するAPI
   static deleteNote(id) {
     const notes = NotesAPI.getAllNotes();
-    const newNotes = notes.filter((note) => note.id !== id);
+    const newNotes = notes.filter((note) => note.id != id);
 
     localStorage.setItem("notes", JSON.stringify(newNotes));
   }
