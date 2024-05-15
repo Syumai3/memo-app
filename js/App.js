@@ -42,10 +42,22 @@ export default class App {
       },
       onNoteAdd: () => {
         console.log("ノートが追加されました");
+        const newNote = {
+          title: "新しいノート",
+          body: "ここに本文を追加",
+        };
+
+        NotesAPI.saveNote(newNote);
+        this._refreshNotes();
       },
       onNoteEdit: (title, body) => {
-        console.log(title);
-        console.log(body);
+        NotesAPI.saveNote({
+          id: this.activeNote.id,
+          title: title,
+          body: body,
+        });
+
+        this._refreshNotes();
       },
       onNoteDelete: (noteId) => {
         console.log(noteId + "のノートが削除されました");
